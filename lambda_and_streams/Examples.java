@@ -1,7 +1,6 @@
 package lambda_and_streams;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -54,5 +53,15 @@ public class Examples {
 
 //    final List<Integer> ints = new ArrayList<>();
 //    Consumer<List<Integer>> consumer = o -> ints = new ArrayList<>();
+
+    Collection<String> names = Arrays.asList("Mnemonic", "Deckard", "Flynn");
+// Functional style
+    String[] namesArray1 = names.toArray(size -> new String[size]);
+
+// Method reference
+    String[] namesArray2 = names.toArray(String[]::new);
+
+    Map<Integer, Object> map = Map.of(1, 3, 5, 7);
+//    map.values()
   }
 }

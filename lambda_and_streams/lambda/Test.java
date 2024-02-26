@@ -1,5 +1,7 @@
 package lambda_and_streams.lambda;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -17,7 +19,7 @@ public class Test {
     };
 
     final int a = 0;
-    Consumer <String> consumer = new Consumer<String>() {
+    Consumer<String> consumer = new Consumer<String>() {
       @Override
       public void accept(String s) {
         System.out.println(a);
@@ -39,6 +41,36 @@ public class Test {
       }
     };
 
+//    List<Integer> ints = new ArrayList<>();
+//    int number = 1;
+//
+////    Integer t = ints.get(number);
+//    Consumer<List<Integer>> consumer5 = o -> {
+//      Integer t = ints.get(number);
+//      t++;
+//    };
+
+    List<Integer> ints = new ArrayList<>();
+
+    Consumer<List<Integer>> consumer3 = o -> o.add(12312);
+    consumer3.accept(ints);
+
+    class MyConsumer implements Consumer<List<Integer>> {
+
+      @Override
+      public void accept(List<Integer> list) {
+       list.add(12);
+      }
+    }
+
+    Consumer<List<Integer>> consumer4 = new MyConsumer();
+
+    consumer4.accept(ints);
+
+
+
 
   }
+
+
 }
